@@ -6,7 +6,7 @@ public abstract class Producto {
 
     public static final int STOCK_MINIMO = 5;
 
-    private int id;
+    private final int id;
     private String nombre;
     private double precio;
     private int cantidad;
