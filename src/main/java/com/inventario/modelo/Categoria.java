@@ -6,7 +6,7 @@ public class Categoria {
 
     public Categoria(String nombre, String descripcion) {
 
-        if(nombre == null || nombre.isBlank()){
+        if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("La categoria necesita un nombre");
         }
         this.nombre = nombre.trim();

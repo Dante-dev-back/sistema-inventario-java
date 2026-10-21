@@ -16,8 +16,11 @@ public abstract class Producto {
         this.id = id;
         setNombre(nombre);
         setPrecio(precio);
-        if (cantidad < 0){
+        if (cantidad < 0) {
             throw new IllegalArgumentException("La cantidad no puede ser negativa");
+        }
+        if (categoria == null) {
+            throw new IllegalArgumentException("La categoria es olbigatoria");
         }
         this.cantidad = cantidad;
         this.categoria = categoria;
@@ -25,27 +28,28 @@ public abstract class Producto {
 
     // -------- Comportamiento --------
 
-    public void agregarStock(int unidades){
-        if (unidades <= 0){
-            throw new IllegalArgumentException("Las unidades deber ser mayores a 0");
+    public void agregarStock(int unidades) {
+        if (unidades <= 0) {
+            throw new IllegalArgumentException("Las unidades deben ser mayores a 0");
         }
         cantidad += unidades;
     }
 
     public void retirarStock(int unidades) throws StockInsuficienteException {
-        if (unidades <= 0){
+        if (unidades <= 0) {
             throw new IllegalArgumentException("Las unidades deben ser mayores a 0");
         }
-        if (unidades > cantidad){
+        if (unidades > cantidad) {
             throw new StockInsuficienteException(nombre, cantidad, unidades);
         }
-        cantidad += unidades;
+        cantidad -= unidades;
     }
 
-    public boolean tieneStockBajo(){
+    public boolean tieneStockBajo() {
         return cantidad <= STOCK_MINIMO;
     }
-    public double valorTotal(){
+
+    public double valorTotal() {
         return precio * cantidad;
     }
 
@@ -53,15 +57,19 @@ public abstract class Producto {
 
     public abstract String getTipo();
 
-    /** Texto con los datos de cada producto */
+    /**
+     * Texto con los datos de cada producto
+     */
     public abstract String getDetalle();
 
-    /** Dato extra que se guarda en el CSV */
+    /**
+     * Dato extra que se guarda en el CSV
+     */
     protected abstract String getExtraCsv();
 
-    public String toCsv(){
+    public String toCsv() {
         return String.join(";", getTipo(), String.valueOf(id), nombre, String.valueOf(precio),
-        String.valueOf(cantidad), categoria.getNombre(), getExtraCsv());
+                String.valueOf(cantidad), categoria.getNombre(), getExtraCsv());
     }
 
     // --------- Getters y Setters --------
@@ -75,10 +83,10 @@ public abstract class Producto {
     }
 
     public void setNombre(String nombre) {
-        if (nombre == null || nombre.isBlank()){
+        if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre no puede estar vacio");
         }
-        // Se quita para ';' para no romper el formato csv
+        // Se quita ';' para no romper el formato csv
         this.nombre = nombre.trim().replace(";", ",");
     }
 
@@ -87,7 +95,7 @@ public abstract class Producto {
     }
 
     public void setPrecio(double precio) {
-        if (precio < 0){
+        if (precio < 0) {
             throw new IllegalArgumentException("El precio no puede ser negativo");
         }
         this.precio = precio;
@@ -102,12 +110,15 @@ public abstract class Producto {
     }
 
     public void setCategoria(Categoria categoria) {
+        if (categoria == null) {
+            throw new IllegalArgumentException("La categoria es obligatoria");
+        }
         this.categoria = categoria;
     }
 
     @Override
     public String toString() {
-        return String.format("[%d] %-22s %-11s s/ %9.2f x%-4d %-12s %s",
-        id, nombre, getTipo(), precio, cantidad, categoria, getDetalle());
+        return String.format("[%d] %-22s %-16s S/ %9.2f x%-4d %-12s %s",
+                id, nombre, getTipo(), precio, cantidad, categoria, getDetalle());
     }
 }
