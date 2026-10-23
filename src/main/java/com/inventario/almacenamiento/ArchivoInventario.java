@@ -1,4 +1,4 @@
-package com.inventario.Almacenamiento;
+package com.inventario.almacenamiento;
 
 import com.inventario.modelo.Categoria;
 import com.inventario.modelo.Producto;

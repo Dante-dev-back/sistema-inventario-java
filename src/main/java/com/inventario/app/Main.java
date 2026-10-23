@@ -1,6 +1,6 @@
 package com.inventario.app;
 
-import com.inventario.Almacenamiento.ArchivoInventario;
+import com.inventario.almacenamiento.ArchivoInventario;
 import com.inventario.excepciones.ProductoNoEncontradoException;
 import com.inventario.excepciones.StockInsuficienteException;
 import com.inventario.modelo.Categoria;
@@ -128,7 +128,7 @@ public class Main {
         }
     }
 
-    // -------- Almacenamiento --------
+    // -------- almacenamiento --------
 
     private static void cargarDatos() {
         if (!archivo.existe()) {
