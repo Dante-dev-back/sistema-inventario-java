@@ -23,7 +23,7 @@ public class ProductoElectronico extends Producto {
 
     @Override
     public String getDetalle() {
-        return "GARANTIA" + garantiaMeses + " meses";
+        return "GARANTIA " + garantiaMeses + " meses";
     }
 
     @Override
