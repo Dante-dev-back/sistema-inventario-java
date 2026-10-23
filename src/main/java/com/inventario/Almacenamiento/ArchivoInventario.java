@@ -58,7 +58,7 @@ public class ArchivoInventario {
         Categoria categoria = new Categoria(c[5], "");
 
         return switch (c[0]) {
-            case "CADUCABLE" ->
+            case "CON_VENCIMIENTO" ->
                     new ProductoConVencimiento(id, nombre, precio, cantidad, categoria, LocalDate.parse(c[6]));
             case "ELECTRONICO" ->
                     new ProductoElectronico(id, nombre, precio, cantidad, categoria, Integer.parseInt(c[6]));
