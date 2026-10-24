@@ -37,3 +37,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Configuración del IDE ###
+.idea/
+
+### Datos de prueba del programa ###
+inventario.csv
