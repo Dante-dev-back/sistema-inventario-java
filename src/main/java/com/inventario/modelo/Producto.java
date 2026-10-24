@@ -118,7 +118,8 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return String.format("[%d] %-22s %-16s S/ %9.2f x%-4d %-12s %s",
-                id, nombre, getTipo(), precio, cantidad, categoria, getDetalle());
+        String agotado = cantidad == 0 ? " (AGOTADO)" : "";
+        return String.format("[%d] %-22s %-16s S/ %9.2f x%-4d %-12s %s%s",
+                id, nombre, getTipo(), precio, cantidad, categoria, getDetalle(), agotado);
     }
 }
