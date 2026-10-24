@@ -66,7 +66,7 @@ public class Main {
                 System.out.println("Producto eliminado.");
             }
             case 5 -> {
-                inventario.retirarStrock(leerEntero("Id del producto: "), leerEntero("Unidades: "));
+                inventario.retirarStock(leerEntero("Id del producto: "), leerEntero("Unidades: "));
                 System.out.println("Stock actualizado.");
             }
             case 6 -> {

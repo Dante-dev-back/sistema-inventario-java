@@ -52,7 +52,7 @@ public class Inventario {
 
     // --------- Lógica de negocio --------
 
-    public void retirarStrock(int id, int unidades)
+    public void retirarStock(int id, int unidades)
             throws ProductoNoEncontradoException, StockInsuficienteException {
         buscarPorId(id).retirarStock(unidades);
     }
