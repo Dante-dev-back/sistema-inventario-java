@@ -104,6 +104,6 @@ Este proyecto avanza por etapas. La versión actual usa **solo Java y POO**, y l
 - Exportación de reportes a archivo
 
 ## Autor
-**Daniel Aurelio Peralta Escurra** · [LinkedIn](https://www.linkedin.com/in/tu-usuario) · [GitHub](https://github.com/Dante-dev-back)
+**Daniel Aurelio Peralta Escurra** · [LinkedIn](www.linkedin.com/in/daniel-peralta-escurra) · [GitHub](https://github.com/Dante-dev-back)
 
 
