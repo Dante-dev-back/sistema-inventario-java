@@ -17,6 +17,7 @@ Un almacén necesita saber qué tiene, cuánto le queda y qué está por perders
 - Dos tipos de producto: **con vencimiento** (alimentos, medicinas) y **electrónicos** (con garantía)
 - Vender (retirar) y reponer stock, con validación de cantidades
 - Alertas de **stock bajo** (5 unidades o menos) y de productos **vencidos o por vencer** (7 días o menos)
+- Los productos sin existencias se marcan como (**AGOTADO**)
 - Reportes: valor total del inventario, top 3 de productos más caros y productos por categoria
 - Guardado y carga automática de datos en un archivo csv
 
@@ -38,9 +39,9 @@ src/main/java/com/inventario/
 ├── app/             Main: menú por consola
 ├── modelo/          Producto, ProductoConVencimiento, ProductoElectronico, Categoria, Vencible
 ├── servicio/        Inventario: lógica de negocio y reportes
-├── almacenamiento   ArchivoInventario: guardado y carga en csv
-└── excepciones      Excepciones personalizadas
-src/test/java        Pruebas unitarias con JUnit 5
+├── almacenamiento/  ArchivoInventario: guardado y carga en CSV
+└── excepciones/     Excepciones personalizadas
+src/test/java/       Pruebas unitarias con JUnit 5
 ```
 
 ## Cómo ejecutarlo
